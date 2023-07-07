@@ -6,9 +6,9 @@ from selene.support.shared import browser
 def test_github():
     browser.open("https://github.com/")
 
-    browser.element(".header-search-input").click()
-    browser.element(".header-search-input").send_keys("eroshenkoam/allure-example")
-    browser.element(".header-search-input").submit()
+    browser.element('//span[@class="flex-1"]').click()
+    browser.element('//input[@id="query-builder-test"]').send_keys("eroshenkoam/allure-example")
+    browser.element('//input[@id="query-builder-test"]').submit()
 
     browser.element(by.link_text("eroshenkoam/allure-example")).click()
 
@@ -17,4 +17,3 @@ def test_github():
     browser.element(by.partial_text("#65")).should(be.visible)
 
     browser.quit()
-
